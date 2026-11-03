@@ -1,66 +1,74 @@
 # VARIAVEIS
 
 jogos = ['minecraft', 'roblox','valorant']
+resposta = 'sim'
 
-# GERENCIAMENTO
+# MENU
 
-print ('=== GERENCIADOR DE JOGOS ===')
+while resposta == 'sim':
+    print ('1 - Mostrar jogos')
+    print ('2 - Pesquisar jogo')
+    print ('3 - Cadastrar jogo')
+    print ('4 - Consultar posição')
+    print ('5 - Remover jogo')
+    print ('6 - Sair')
 
-for posicao in range (len(jogos)):
-    print (f'Posição: {posicao} - {jogos[posicao]}')
-    
-# DIGITAÇÃO DO USUÁRIO
+    # OPÇÕES
 
-jogo_digitado = input ('Digite o nome do jogo desejado: ').lower()
+    escolha = input ('Escolha uma das opções: ')
+    if escolha == '6':
+        resposta = 'não'
 
-# VERIFICAÇÃO DO JOGO
+    elif escolha == '1':
+       print ('\n=== MINHA LISTA DE JOGOS ===')
+       for posicao in range(len(jogos)):
+          print (f'Posição: {posicao} - {jogos [posicao]}')
 
-if jogo_digitado in jogos:
-    print ('Jogo encontrado!')
-else:
-    print ('Jogo não encontrado!')
-    
-# CADASTRO DE JOGOS
+    # BUSCA DO JOGO
 
-cadastrar = input ('Deseja cadastrar um novo jogo? (sim/não): ').lower()
+    elif escolha == '2':
+       pesquisa = input ('Qual o jogo que você está buscando? ').lower()
+       if pesquisa in jogos:
+          print ('Jogo encontrado!')
+       else:
+          print ('Jogo não encontrado!')
 
-if cadastrar == 'sim':
-    novo_jogo = input ('Digite o nome do novo jogo: ').lower()
-    
-    if novo_jogo not in jogos:
-       jogos.append (novo_jogo)
-       print ('Jogo cadastrado com sucesso!')
+    # ADICIONANDO O JOGO      
+
+    elif escolha == '3':
+       adicionar = input ('Escolha o jogo que você deseja adicionar: ').lower()
+       if adicionar not in jogos:
+          jogos.append (adicionar)
+          print ('Jogo adicionado com sucesso!')
+       else:
+          print ('O jogo já está na lista!')
+
+    # CONSULTANDO A POSIÇÃO
+
+    elif escolha == "4":
+      consulta = int (input ('Qual posição você deseja consultar? '))
+      if consulta >= 0 and consulta < len (jogos):
+         print (f'Posição {consulta} - {jogos [consulta]}')
+      else:
+         print ('Posição não encontrada')
+
+    # REMOÇÃO DO JOGO
+
+    elif escolha == '5':
+       remocao = input ('Qual o jogo que você deseja remover? ').lower()
+       if remocao in jogos:
+          jogos.remove (remocao)
+          print ('Jogo removido com sucesso!')
+       else:
+          print ('Jogo não encontrado!')
     else:
-       print ('Este jogo já está cadastrado!')
+     print ('Opção inválida!')
+print ('Programa encerrado!')
+
+ # FINAL DA REPETIÇÃO
+
+print ('=== RESULTADOS FINAIS ===')
+for posicao in range(len(jogos)):
+    print(f'Posição: {posicao} - {jogos[posicao]}')
+print(f'Total de jogos: {len(jogos)}')
     
-else:
-    print ('Nenhum jogo foi adicionado.')
-
-# REMOÇÃO
-
-remover = input ('Deseja remover um jogo? (sim/não): ').lower()
-
-if remover == 'sim':
-    remover_jogo = input ('Qual jogo você deseja remover? ').lower()
-    if remover_jogo in jogos:
-       jogos.remove (remover_jogo)
-       print ('Jogo removido com sucesso!')
-    else:
-       print ('Este jogo não está cadastrado!')
-
-else:
-    print ('Nenhum jogo foi removido.')
-
-# RESULTADOS FINAIS
-for posicao in range (len(jogos)):
-    print (f'Posição: {posicao} - {jogos[posicao]}')
-print (f'Total de jogos: {len(jogos)}')
-
-# CONSULTA DA POSIÇÃO
-
-posicao_desejada = int (input('Escolha a posição desejada:'))
-
-if posicao_desejada >= 0 and posicao_desejada < len (jogos):
-    print (f'Posição: {jogos[posicao_desejada]}')
-else:
-    print ('Posição inválida!')

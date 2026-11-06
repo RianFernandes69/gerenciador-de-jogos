@@ -46,16 +46,51 @@ Novos conceitos utilizados:
 - Retorno de valores com `return`.
 - Organização e reutilização de código.
 
+### Versão 4.0 — Organização, validação e testes
+
+Arquivo: `gerenciador_v4.py`
+
+A versão 4.0 aprimora o sistema, adicionando validações e melhorando a organização dos arquivos.
+
+Novidades:
+- Normalização automática dos nomes com `strip()` e `lower()`.
+- Bloqueio de jogos duplicados utilizando conjuntos (`set`).
+- Pesquisa e remoção com comparação de nomes normalizados.
+- Proteção da execução do menu com `if __name__ == "__main__":`.
+- Separação dos testes em um arquivo independente.
+- Importação de funções e variáveis entre arquivos.
+
+Novos conceitos utilizados:
+- Conjuntos (`set`).
+- Métodos de strings (`strip()` e `lower()`).
+- Importação de funções com `from` e `import`.
+- Módulos Python.
+- Testes de funções.
+- `if __name__ == "__main__"`.
+
+Testes realizados:
+- Pesquisa de jogos.
+- Adição de jogos.
+- Bloqueio de duplicatas.
+- Remoção de jogos.
+- Consulta de posições.
+- Contagem e exibição dos jogos.
+
+Resultado: 6 de 6 testes aprovados.
+
 ## 📂 Estrutura dos arquivos
 
 ```text
 gerenciador-de-jogos/
 │
-├── main.py                # Versão 2.0
-├── gerenciador_v3.py      # Versão 3.0
-├── teste_funcoes.py       # Testes das funções
-├── menu_jogos.py          # Exercício de menu
-└── README.md              # Documentação
+├── gerenciador_v3.py
+├── gerenciador_v4.py
+├── main.py
+├── menu_jogos.py
+├── README.md
+├── teste_funcoes_v4.py
+├── teste_funcoes.py
+└── teste_importacao.py
 ```
 
 ## ▶️ Como executar
@@ -72,6 +107,18 @@ Para executar a versão 3.0:
 
 ```bash
 python gerenciador_v3.py
+```
+
+Para executar a versão 4.0:
+
+```bash
+python gerenciador_v4.py
+```
+
+Para executar os testes da versão 4.0:
+
+```bash
+python teste_funcoes_v4.py
 ```
 
 ## 🎯 Objetivo de aprendizagem
